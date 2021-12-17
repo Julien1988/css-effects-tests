@@ -9,10 +9,6 @@ export default function Home() {
   const [offsetX, setOffsetX] = useState(0)
   const handleScroll = () => {
     setOffsetY(window.pageYOffset)
-    // if (window.pageYOffset > 1000) {
-    // setOffsetX(window.pageYOffset - 1000)
-    
-    // }
     setOffsetX(window.pageYOffset)
   }  
 
@@ -23,8 +19,6 @@ export default function Home() {
   }, [])
  
  
-  // Dimension Iphone 6/7/8
- 
 
   return (
     <div className={styles.container}>
@@ -34,32 +28,24 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className='main bg-amber-300 overflow-hidden '>
-        {console.log(offsetY)}
-        <section className='container bg-amber-300 h-screen' style={{transform: `translateY(-${offsetY * 0.2 }px)`}}>
-          <div className='h-full  flex flex-col justify-center'>
-            <h1 className="text-3xl font-bold underline text-center">Hello world!</h1>
-         </div>
-        </section>
-
-        <section className='container bg-lime-300 h-screen translate-y-80 rotate-45  w-screen' >
-          <div className='h-full  flex flex-col justify-center'>
+      <main className=''>
+        <section className='h-screen bg-red-700'>
+          <div className='flex justify-center items-center h-full'>
+            <h1 className='text-center text-white text-2xl'>Hello One</h1>
           </div>
         </section>
-
-        <section className='container bg-lime-300 h-screen' >
-          <div className='h-full  flex flex-col  '>
-            <div className='translate-x-3/4'>
-              <h1 className="text-3xl font-bold underline text-center z-10" style={{transform: `translateX(-${offsetX * 0.3}px)`}}>Hi world!</h1>
-            </div>
+        <section className='h-screen bg-amber-400'>
+          <div className='flex justify-center items-center h-full'>
+           <h1 className='text-center text-white text-2xl'>Hello Two</h1>
           </div>
         </section>
+        <section className='h-screen bg-lime-400'>
+          <div className='flex justify-center items-center h-full'>
+           <h1 className='text-center text-white text-2xl'>Hello Three</h1>
 
-        <section className='container bg-cyan-300 h-screen overflow-auto ' style={{transform: `translateY(-${offsetY * 0.2 }px)`}}>
-          <div className='h-full  flex flex-col justify-center' >
-            <h1 className="text-3xl font-bold underline text-center">Good Bye !</h1>
-         </div>
+          </div>
         </section>
+       
       </main>
        
     </div>
