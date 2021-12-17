@@ -41,8 +41,17 @@ export default function Home() {
 
         <section className='h-screen bg-amber-400'>
          
-          <div className='flex justify-center items-center h-full'>
-           <h1 className='text-center text-white text-2xl'>Hello Two</h1>
+          <div className='flex justify-center items-center h-full overflow-hidden'>
+            <div className='left-from-right-effect translate-x-96'>
+              <div className='translate-x-96'>
+              <h1 className='text-center text-white text-2xl' style={{transform: `translateX(-${offsetX * 0.5}px)`}}>Hello Droite</h1>
+             
+              </div>
+              <div className='-translate-x-96'>
+              <p className='text-center text-white text-2xl' style={{transform: `translateX(${offsetX * 0.3}px)`}}>Je viens de la gauche</p>
+              </div>
+              
+            </div>
           </div>
         </section>
 
