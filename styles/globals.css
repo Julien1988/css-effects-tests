@@ -2,3 +2,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.triangle {
+    display : inline-block;
+    height : 0;
+    width : 0;
+    border-right: 100vw solid transparent;
+    border-bottom : 200px solid rgb(251 191 36 / var(--tw-bg-opacity))
+}

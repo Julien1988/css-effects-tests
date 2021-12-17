@@ -28,26 +28,31 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className=''>
-        <section className='h-screen bg-red-700'>
+      <main className='main'>
+
+        <section className='h-screen bg-red-700 relative'>
           <div className='flex justify-center items-center h-full'>
             <h1 className='text-center text-white text-2xl'>Hello One</h1>
           </div>
+          <div className='triangle bg-red-700 absolute bottom-0 right-0'>
+          </div>
+      
         </section>
+
         <section className='h-screen bg-amber-400'>
+         
           <div className='flex justify-center items-center h-full'>
            <h1 className='text-center text-white text-2xl'>Hello Two</h1>
           </div>
         </section>
+
         <section className='h-screen bg-lime-400'>
           <div className='flex justify-center items-center h-full'>
            <h1 className='text-center text-white text-2xl'>Hello Three</h1>
-
           </div>
         </section>
-       
+
       </main>
-       
     </div>
   )
 }
