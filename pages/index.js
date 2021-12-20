@@ -7,6 +7,7 @@ export default function Home() {
 
   const [offsetY, setOffsetY] = useState(0)
   const [offsetX, setOffsetX] = useState(0)
+  const [offsetYSectionThree, setOffsetYSectionThree] = useState(0) 
 
   const handleScroll = () => {
     setOffsetY(window.pageYOffset)
@@ -15,16 +16,29 @@ export default function Home() {
     // get section 1
     const getSectionOwo = document.querySelector('.section-1');
     const getSectionOwoPosition = getSectionOwo.getBoundingClientRect();
-    console.log(getSectionOwoPosition)
+  
+    // get window size (for responsive)
+    const getWindowHeight = window.innerHeight;  
     
+   window.innerHeight;  
+     
+  
+    console.log( 'ici', getWindowHeight)
     // get section 2
     const getSectionTwo = document.querySelector('.section-2');
     const getSectionTwoPosition = getSectionTwo.getBoundingClientRect();
-    
+
+    // get section 3
+    const getSectionThree = document.querySelector('.section-3');
+    const getSectionThreePosition = getSectionThree.getBoundingClientRect();
+    let sectionThreeStarter = (getSectionThreePosition.height - 400)
+    setOffsetYSectionThree(window.pageYOffset - sectionThreeStarter)
+
 
   }  
-    console.log(offsetX)
-      
+    //console.log('offset Y', offsetY)
+  
+    
  
 
   useEffect(() => {
@@ -48,7 +62,7 @@ export default function Home() {
         <section className='h-screen bg-red-700 relative section-1'>
 
           <div className='absolute inset-1/3'>
-            <h1 className='text-center text-white text-2xl'style={{transform: `translateY(${offsetY * 0.5}px)`}}>Hello One</h1>
+            <h1 className='text-center text-white text-2xl'style={{transform: `translateY(${offsetY * 1.6}%)`}}>Hello One</h1>
           </div>
 
           <div className='triangle bg-red-700 absolute bottom-0 right-0'>
@@ -60,7 +74,7 @@ export default function Home() {
          
           <div className=' h-full overflow-hidden relative'>
             <div className='absolute left-full bottom-3/4'>
-              <h1 className=' w-max text-white text-2xl pt-20' style={{transform: `translateX(-${offsetX * 0.8}px)`}} >Hello Droite</h1>
+              <h1 className='w-max text-white text-2xl pt-20' style={{transform: `translateX(-${offsetX * 0.8}px)`}} >Hello Droite</h1>
             </div>
             
             <div className='absolute right-full bottom-2/4'>
@@ -70,10 +84,10 @@ export default function Home() {
 
         </section>
 
-        <section className='h-screen bg-lime-400 section-3'>
-          <div className='flex justify-center items-center h-full overflow-hidden'>
-            <h1 className='text-center text-white text-2xl' >Hello Three</h1>
-          </div>
+        <section className='h-screen bg-lime-400 section-3 relative overflow-hidden'>
+            <div className='absolute bottom-0 inset-x-2/4 '>
+              <h1 className='w-max text-white text-2xl'style={{transform: `translateY(-${ offsetYSectionThree * 2 }%)`}} >Hello Three</h1>
+            </div>
         </section>
 
       </main>
