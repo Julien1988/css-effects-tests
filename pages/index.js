@@ -11,6 +11,7 @@ export default function Home() {
   const [getYsectionOne, setYsectionOne] = useState(0)
   const [getYsectionTwo, setYsectionTwo] = useState(0)
   const [getYsectionThree, setYsectionThree] = useState(0)
+  const [getYsectionFor, setYsectionFor] = useState(0)
 
   const handleScroll = () => {
     setOffsetY(window.pageYOffset)
@@ -41,6 +42,15 @@ export default function Home() {
     setYsectionThree(getSectionThreeStarter)
 
    // console.log(getYsectionThree)
+    
+    // get section 4
+
+    // Formure responsive sur la hauteure
+    const getSectionFor = document.querySelector('.section-4');
+    const getSectionForPosition = getSectionFor.getBoundingClientRect();
+    const getSectionForStarter = getSectionForPosition.y - getSectionForPosition.height
+   
+    setYsectionFor(getSectionForStarter)
 
   }  
 
@@ -94,6 +104,12 @@ export default function Home() {
         <section className='h-screen bg-lime-400 section-3 relative overflow-hidden'>
             <div className='absolute inset-1/3 bottom-0 '>
               <h1 className='text-white text-2xl text-center' style={{transform: `translateY(${getYsectionThree * 0.8}%`}}>Hello Three</h1>
+            </div>
+        </section>
+
+        <section className='h-screen bg-amber-400 section-4 relative overflow-hidden'>
+            <div className='absolute inset-1/3 bottom-0 '>
+              <h1 className='text-white text-2xl text-center' style={{transform: `translateY(${getYsectionFor * 0.8}%`}}>Hello Three</h1>
             </div>
         </section>
 
