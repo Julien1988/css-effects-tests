@@ -10,23 +10,30 @@ export default function Home() {
 
   const handleScroll = () => {
     setOffsetY(window.pageYOffset)
-    setOffsetX(window.pageYOffset)
+    setOffsetX(window.pageYOffset - window.innerWidth / 10)
 
- 
+    // get section 1
+    const getSectionOwo = document.querySelector('.section-1');
+    const getSectionOwoPosition = getSectionOwo.getBoundingClientRect();
+    console.log(getSectionOwoPosition)
+    
+    // get section 2
+    const getSectionTwo = document.querySelector('.section-2');
+    const getSectionTwoPosition = getSectionTwo.getBoundingClientRect();
+    
 
-   
   }  
+    console.log(offsetX)
       
  
 
-
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
-  
+    
     return () => window.removeEventListener('scroll', handleScroll)
   }, []);
  
-  //console.log(section2OffsetY)
+
 
 
   return (
@@ -38,11 +45,10 @@ export default function Home() {
       </Head>
 
       <main className='main'>
-
         <section className='h-screen bg-red-700 relative section-1'>
 
-          <div className='flex justify-center items-center h-full'>
-            <h1 className='text-center text-white text-2xl'style={{transform: `translateY(${offsetY * 0.3}px)`}}>Hello One</h1>
+          <div className='absolute inset-1/3'>
+            <h1 className='text-center text-white text-2xl'style={{transform: `translateY(${offsetY * 0.5}px)`}}>Hello One</h1>
           </div>
 
           <div className='triangle bg-red-700 absolute bottom-0 right-0'>
