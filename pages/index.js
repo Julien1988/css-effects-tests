@@ -27,6 +27,7 @@ export default function Home() {
 
     // Détection du point d'arrivage de l'écran dans la section avant d'utiuliser l'effet dront
     window.pageYOffset >= getSectionThree.height
+      // Remise du compteur à zero 
       ? setYsectionThree(window.pageYOffset - windowHeight)
       : setYsectionThree(0)  
 
