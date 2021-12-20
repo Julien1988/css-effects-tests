@@ -1,26 +1,40 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
-import { useState, useEffect } from 'react';
+import { useState, useEffect,  } from 'react';
 
 export default function Home() {
 
   const [offsetY, setOffsetY] = useState(0)
   const [offsetX, setOffsetX] = useState(0)
+  const [section2OffsetY, setSection2OffsetY] = useState(363)
+  const [section2IsOn, setSection2IsOn] = useState(false)
   const handleScroll = () => {
     setOffsetY(window.pageYOffset)
     setOffsetX(window.pageYOffset)
+    let elementSection2 = document.querySelector('.section-2');
+    let positionSection2 = elementSection2.getBoundingClientRect();
+  
+    // Detction de la section 2 (className)
+    positionSection2.top >= section2OffsetY
+    ? setSection2IsOn(false)
+    : setSection2IsOn(true)
+
    
-    
   }  
+      
+  console.log(section2IsOn)
+ 
+
 
   useEffect(() => {
-      window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll);
+  
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, []);
+ 
+  //console.log(section2OffsetY)
 
-      return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
- 
- 
 
   return (
     <div className={styles.container}>
@@ -32,16 +46,16 @@ export default function Home() {
 
       <main className='main'>
 
-        <section className='h-screen bg-red-700 relative'>
+        <section className='h-screen bg-red-700 relative section-1'>
           <div className='flex justify-center items-center h-full'>
-            <h1 className='text-center text-white text-2xl'>Hello One</h1>
+            <h1 className='text-center text-white text-2xl'style={{transform: `translateY(${offsetY * 0.3}px)`}}>Hello One</h1>
           </div>
           <div className='triangle bg-red-700 absolute bottom-0 right-0'>
           </div>
       
         </section>
 
-        <section className='h-screen bg-amber-400'>
+        <section className='h-screen bg-amber-400 section-2' id="testId">
          
           <div className='flex justify-center items-center h-full overflow-hidden'>
             <div className='left-from-right-effect md:translate-x-full'>
@@ -57,9 +71,9 @@ export default function Home() {
           </div>
         </section>
 
-        <section className='h-screen bg-lime-400'>
-          <div className='flex justify-center items-center h-full'>
-           <h1 className='text-center text-white text-2xl'>Hello Three</h1>
+        <section className='h-screen bg-lime-400 section-3'>
+          <div className='flex justify-center items-center h-full overflow-hidden'>
+            <h1 className='text-center text-white text-2xl' >Hello Three</h1>
           </div>
         </section>
 
