@@ -40,9 +40,11 @@ export default function Home() {
       <main className='main'>
 
         <section className='h-screen bg-red-700 relative section-1'>
+
           <div className='flex justify-center items-center h-full'>
             <h1 className='text-center text-white text-2xl'style={{transform: `translateY(${offsetY * 0.3}px)`}}>Hello One</h1>
           </div>
+
           <div className='triangle bg-red-700 absolute bottom-0 right-0'>
           </div>
       
@@ -51,17 +53,15 @@ export default function Home() {
         <section className='h-screen bg-amber-400 section-2'>
          
           <div className=' h-full overflow-hidden relative'>
-           
-                <div className='absolute left-full bottom-2/4'>
-                  <h1 className=' w-max text-white text-2xl' style={{transform: `translateX(-${offsetX * 0.5}px)`}} >Hello Droite</h1>
-
-                </div>
-                <div className='absolute right-full bottom-3/4'>
-                <p className='w-max text-white text-2xl' style={{transform: `translateX(${offsetX * 0.5}px)`}}>Je viens de la gauche</p>
-              
-              
+            <div className='absolute left-full bottom-3/4'>
+              <h1 className=' w-max text-white text-2xl pt-20' style={{transform: `translateX(-${offsetX * 0.8}px)`}} >Hello Droite</h1>
+            </div>
+            
+            <div className='absolute right-full bottom-2/4'>
+              <p className='w-max text-white text-2xl pb-20' style={{transform: `translateX(${offsetX * 0.8}px)`}}>Je viens de la gauche</p>
             </div>
           </div>
+
         </section>
 
         <section className='h-screen bg-lime-400 section-3'>
