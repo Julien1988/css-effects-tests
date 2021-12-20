@@ -7,36 +7,35 @@ export default function Home() {
 
   const [offsetY, setOffsetY] = useState(0)
   const [offsetX, setOffsetX] = useState(0)
-  const [offsetYSectionThree, setOffsetYSectionThree] = useState(0) 
+
+
+  const [getYsectionThree, setYsectionThree] = useState(0)
 
   const handleScroll = () => {
     setOffsetY(window.pageYOffset)
     setOffsetX(window.pageYOffset - window.innerWidth / 10)
 
     // get section 1
-    const getSectionOwo = document.querySelector('.section-1');
-    const getSectionOwoPosition = getSectionOwo.getBoundingClientRect();
-  
-    // get window size (for responsive)
-    const getWindowHeight = window.innerHeight;  
+    const getSectionOne = document.querySelector('.section-1');
     
-   window.innerHeight;  
-     
-  
-    console.log( 'ici', getWindowHeight)
+    
     // get section 2
-    const getSectionTwo = document.querySelector('.section-2');
-    const getSectionTwoPosition = getSectionTwo.getBoundingClientRect();
+    
+
+    
+  
 
     // get section 3
     const getSectionThree = document.querySelector('.section-3');
     const getSectionThreePosition = getSectionThree.getBoundingClientRect();
-    let sectionThreeStarter = (getSectionThreePosition.height - 400)
-    setOffsetYSectionThree(window.pageYOffset - sectionThreeStarter)
+    const getSectionThreeStarter = getSectionThreePosition.y - getSectionThreePosition.height
+    console.log(getSectionThreeStarter)
+    setYsectionThree(getSectionThreeStarter)
 
+   // console.log(getYsectionThree)
 
   }  
-    //console.log('offset Y', offsetY)
+
   
     
  
@@ -85,8 +84,8 @@ export default function Home() {
         </section>
 
         <section className='h-screen bg-lime-400 section-3 relative overflow-hidden'>
-            <div className='absolute bottom-0 inset-x-2/4 '>
-              <h1 className='w-max text-white text-2xl'style={{transform: `translateY(-${ offsetYSectionThree * 2 }%)`}} >Hello Three</h1>
+            <div className='absolute inset-1/3 bottom-0 '>
+              <h1 className='text-white text-2xl text-center' style={{transform: `translateY(${getYsectionThree * 0.8}%`}}>Hello Three</h1>
             </div>
         </section>
 
