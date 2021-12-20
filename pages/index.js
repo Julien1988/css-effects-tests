@@ -8,55 +8,30 @@ export default function Home() {
   const [offsetY, setOffsetY] = useState(0)
   const [offsetX, setOffsetX] = useState(0)
 
-  const [getYsectionOne, setYsectionOne] = useState(0)
-  const [getYsectionTwo, setYsectionTwo] = useState(0)
   const [getYsectionThree, setYsectionThree] = useState(0)
-  const [getYsectionFor, setYsectionFor] = useState(0)
 
+
+
+  
   const handleScroll = () => {
+    // Calcule de la taille de l'écran (hauteur)
+    const windowHeight = (window.innerHeight * 1.6);
+
+    
     setOffsetY(window.pageYOffset)
     setOffsetX(window.pageYOffset - window.innerWidth / 10)
 
-    // get section 1
-    const getSectionOne = document.querySelector('.section-1');
-     const getSectionOnePosition = getSectionOne.getBoundingClientRect();
-     const getSectionOneStarter = getSectionOnePosition.height - (-  getSectionOnePosition.y)
-     setYsectionOne(getSectionOneStarter)
-
-    console.log( getSectionOneStarter)
-    // get section 2
-    
-
-
-   console.log( getSectionOneStarter)
-    
   
-
     // get section 3
+    const getSectionThree = document.querySelector('.section-3').getBoundingClientRect();
 
-    // Formure responsive sur la hauteure
-    const getSectionThree = document.querySelector('.section-3');
-    const getSectionThreePosition = getSectionThree.getBoundingClientRect();
-    const getSectionThreeStarter = getSectionThreePosition.y - getSectionThreePosition.height
-   
-    setYsectionThree(getSectionThreeStarter)
-
-   // console.log(getYsectionThree)
-    
-    // get section 4
-
-    // Formure responsive sur la hauteure
-    const getSectionFor = document.querySelector('.section-4');
-    const getSectionForPosition = getSectionFor.getBoundingClientRect();
-    const getSectionForStarter = getSectionForPosition.y - getSectionForPosition.height
-   
-    setYsectionFor(getSectionForStarter)
+    // Détection du point d'arrivage de l'écran dans la section avant d'utiuliser l'effet dront
+    window.pageYOffset >= getSectionThree.height
+      ? setYsectionThree(window.pageYOffset - windowHeight)
+      : setYsectionThree(0)  
 
   }  
 
-  
-    
- 
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
@@ -103,15 +78,11 @@ export default function Home() {
 
         <section className='h-screen bg-lime-400 section-3 relative overflow-hidden'>
             <div className='absolute inset-1/3 bottom-0 '>
-              <h1 className='text-white text-2xl text-center' style={{transform: `translateY(${getYsectionThree * 0.8}%`}}>Hello Three</h1>
+              <h1 className='text-white text-2xl text-center'style={{transform: `translateY(-${getYsectionThree * 1.6}%`}}>Hello Three</h1>
             </div>
         </section>
 
-        <section className='h-screen bg-amber-400 section-4 relative overflow-hidden'>
-            <div className='absolute inset-1/3 bottom-0 '>
-              <h1 className='text-white text-2xl text-center' style={{transform: `translateY(${getYsectionFor * 0.8}%`}}>Hello Three</h1>
-            </div>
-        </section>
+   
 
       </main>
     </div>
