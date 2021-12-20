@@ -7,23 +7,16 @@ export default function Home() {
 
   const [offsetY, setOffsetY] = useState(0)
   const [offsetX, setOffsetX] = useState(0)
-  const [section2OffsetY, setSection2OffsetY] = useState(363)
-  const [section2IsOn, setSection2IsOn] = useState(false)
+
   const handleScroll = () => {
     setOffsetY(window.pageYOffset)
     setOffsetX(window.pageYOffset)
-    let elementSection2 = document.querySelector('.section-2');
-    let positionSection2 = elementSection2.getBoundingClientRect();
-  
-    // Detction de la section 2 (className)
-    positionSection2.top >= section2OffsetY
-    ? setSection2IsOn(false)
-    : setSection2IsOn(true)
+
+ 
 
    
   }  
       
-  console.log(section2IsOn)
  
 
 
@@ -55,12 +48,12 @@ export default function Home() {
       
         </section>
 
-        <section className='h-screen bg-amber-400 section-2' id="testId">
+        <section className='h-screen bg-amber-400 section-2'>
          
           <div className='flex justify-center items-center h-full overflow-hidden'>
-            <div className='left-from-right-effect md:translate-x-full'>
-              <div className=' translate-x-full'>
-                <h1 className='text-center text-white text-2xl' style={{transform: `translateX(-${offsetX * 0.5}px)`}}>Hello Droite</h1>
+            <div className='left-from-right-effect'>
+              <div className=''>
+                  <h1 className='text-center text-white text-2xl title-1-section-2 ' >Hello Droite</h1>
               </div>
 
               <div className=' -translate-x-full'>
