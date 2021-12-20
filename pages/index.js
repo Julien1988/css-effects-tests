@@ -8,7 +8,8 @@ export default function Home() {
   const [offsetY, setOffsetY] = useState(0)
   const [offsetX, setOffsetX] = useState(0)
 
-
+  const [getYsectionOne, setYsectionOne] = useState(0)
+  const [getYsectionTwo, setYsectionTwo] = useState(0)
   const [getYsectionThree, setYsectionThree] = useState(0)
 
   const handleScroll = () => {
@@ -17,19 +18,26 @@ export default function Home() {
 
     // get section 1
     const getSectionOne = document.querySelector('.section-1');
-    
-    
+     const getSectionOnePosition = getSectionOne.getBoundingClientRect();
+     const getSectionOneStarter = getSectionOnePosition.height - (-  getSectionOnePosition.y)
+     setYsectionOne(getSectionOneStarter)
+
+    console.log( getSectionOneStarter)
     // get section 2
     
 
+
+   console.log( getSectionOneStarter)
     
   
 
     // get section 3
+
+    // Formure responsive sur la hauteure
     const getSectionThree = document.querySelector('.section-3');
     const getSectionThreePosition = getSectionThree.getBoundingClientRect();
     const getSectionThreeStarter = getSectionThreePosition.y - getSectionThreePosition.height
-    console.log(getSectionThreeStarter)
+   
     setYsectionThree(getSectionThreeStarter)
 
    // console.log(getYsectionThree)
