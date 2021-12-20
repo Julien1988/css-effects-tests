@@ -50,15 +50,15 @@ export default function Home() {
 
         <section className='h-screen bg-amber-400 section-2'>
          
-          <div className=' h-full overflow-hidden'>
-            <div className='left-from-right-effect relative '>
-                <div className='absolute left-full'>
-                  <h1 className=' w-max text-white text-2xl' style={{transform: `translateX(-${offsetX * 0.3}px)`}} >Hello Droite</h1>
+          <div className=' h-full overflow-hidden relative'>
+           
+                <div className='absolute left-full bottom-2/4'>
+                  <h1 className=' w-max text-white text-2xl' style={{transform: `translateX(-${offsetX * 0.5}px)`}} >Hello Droite</h1>
 
                 </div>
-                <div className='absolute right-full'>
-                <p className='w-max text-white text-2xl' style={{transform: `translateX(${offsetX * 0.3}px)`}}>Je viens de la gauche</p>
-               </div>
+                <div className='absolute right-full bottom-3/4'>
+                <p className='w-max text-white text-2xl' style={{transform: `translateX(${offsetX * 0.5}px)`}}>Je viens de la gauche</p>
+              
               
             </div>
           </div>
